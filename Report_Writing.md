@@ -632,7 +632,7 @@ Below is the spreadsheet screenshot  which compares the cost and the potential s
 
 The savings per year are calculated based on the assumption games being played 365 days in a year, also these figures can vary based on number of players, hence Potential Savings is shown between $17,520-$35,040 a year.  
 
-<img src="image-2.png" width="600" height="150" />  
+<img src="screenshots/image-2.png" width="600" height="150" />  
 
 <br></br>
 
