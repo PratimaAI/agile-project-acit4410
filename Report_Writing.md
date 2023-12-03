@@ -706,7 +706,7 @@ Apart from metric calculation there are some other factor which should be consid
 
 **Cost Efficiency:**
 
-A successful 24 hours involves optimizing costs by dynamically adjusting the number of instances based on player load. Automated scaling aims to minimize expenses during periods of low activity by reducing the number of instances and ensuring sufficient capacity during peak times without overprovisioning. Success is achieved when the cost savings from scaling actions outweigh the fixed cost of maintaining a static number of instances.
+A successful 24 hours involves optimizing costs by dynamically adjusting the number of instances based on player load. Automated scaling aims to minimize expenses during periods of low activity by reducing the number of instances and ensuring sufficient capacity during peak times without over-provisioning. Success is achieved when the cost savings from scaling actions outweigh the fixed cost of maintaining a static number of instances.
 
 
 **Resource Utilization:**
