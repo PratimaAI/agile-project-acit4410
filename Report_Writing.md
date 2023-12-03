@@ -1,40 +1,3 @@
-- [1. Discussion about the case](#1-discussion-about-the-case)
-  - [1.1 : Case Overview](#11--case-overview)
-  - [1.2 : Interpreted Context](#12--interpreted-context)
-  - [1.3 : High-level goal of the task](#13--high-level-goal-of-the-task)
-  - [1.4 : Desired Solution Properties](#14--desired-solution-properties)
-  - [1.5 : Evaluation criteria](#15--evaluation-criteria)
-- [2. Technical Design](#2-technical-design)
-  - [2.1 : Technologies used](#21--technologies-used)
-    - [**2.1.1 : Github**](#211--github)
-    - [**2.1.2 : ALTO OpenStack**](#212--alto-openstack)
-    - [**2.1.3 : Prometheus and Grafana**](#213--prometheus-and-grafana)
-      - [**Setting up Prometheus and Grafana**](#setting-up-prometheus-and-grafana)
-      - [**Add an Exporter to Prometheus**](#add-an-exporter-to-prometheus)
-    - [**2.1.4 : Python**](#214--python)
-  - [2.2 : Autoscaling](#22--autoscaling)
-      - [**What Is Autoscaling?**](#what-is-autoscaling)
-      - [**Why Autoscaling is Needed?**](#why-autoscaling-is-needed)
-      - [**Different Ways to Implement Autoscaling:**](#different-ways-to-implement-autoscaling)
-      - [**Types of autoscaling :**](#types-of-autoscaling-)
-      - [**Use cases for Autoscaling :**](#use-cases-for-autoscaling-)
-      - [**Challenges Associated with Autoscaling:**](#challenges-associated-with-autoscaling)
-  - [2.3 : Design Overview](#23--design-overview)
-    - [**Architecture**](#architecture)
-    - [**Monitoring and Data Collection**](#monitoring-and-data-collection)
-    - [**Decision Engine**](#decision-engine)
-  - [2.4 : Testing Environment and Workflow](#24--testing-environment-and-workflow)
-  - [2.5 : Motivation for the Design](#25--motivation-for-the-design)
-      - [**Future Enhancements**](#future-enhancements)
-- [3. Pilot Implementation](#3-pilot-implementation)
-  - [3.1 : Implementation Overview](#31--implementation-overview)
-  - [3.2 : Python-Based Decision Engine](#32--python-based-decision-engine)
-  - [3.3 : Testing](#33--testing)
-  - [3.4 : Key Takeaways](#34--key-takeaways)
-  - [3.5 : Future Steps](#35--future-steps)
-- [4. Evaluation](#4-evaluation)
-- [5. Conclusion](#5-conclusion)
-- [Appendix](#appendix)
 
 # 1. Discussion about the case
 
@@ -547,7 +510,14 @@ To accomplish this, I applied the criteria which involved selecting games based 
 
 Nonetheless, after testing the games with larger player count, I also tested a few games with lower player counts to ensure the mechanism's effectiveness across the spectrum.
 
-The table below lists four sample games that exhibited notable changes in player count over time.<<>>
+The table below lists four sample games that exhibited notable changes in player count over time.
+
+![Alt text](screenshots/Player_count_overtime.png)
+
+As we can see, PLAYERUNKNOWNS BATTLEGROUNDS and Dota 2 both experienced significant increases in player activity from 16:00 to 20:00, while Counter-Strike: Global Offensive and Call of Duty: Modern Warfare 2 saw significant decreases in player activity during this time.
+
+PLAYERUNKNOWNS BATTLEGROUNDS's player count increases significantly from 16:00 to 20:00. This suggests that PLAYERUNKNOWNS BATTLEGROUNDS is a popular game which often draw more players in the evenings.
+
 
 **Scaling:**  
 In the testing phase, we have scaled the number of instances on our OpenStack server to emulate real-world conditions. Screenshots of Docker scaling commands and monitoring tools are provided for illustration. 
@@ -582,7 +552,7 @@ The next steps for this project are:
 - To improve the accuracy of the python algorithm by using more historical data. 
 - Implementing additional features, such as real-time prediction and anomaly detection. 
 - Deploying the system to production and monitor its performance.
-<br></br>
+br></br>
 
 
 # 4. Evaluation
