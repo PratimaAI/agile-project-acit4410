@@ -767,19 +767,27 @@ In conclusion, Project Ruby Acorn has achieved its objectives by successfully im
 
 
 # Appendix
-**Configuration files**
+**Configuration files**  
+https://github.com/PratimaAI/agile-project-acit4410/blob/main/prometheus.yml
 
 
-**Source code**
+**Source code**  
+https://github.com/PratimaAI/agile-project-acit4410
 
 
-**Data sets**
+**Data sets**  
+acit-game-metrics.cs.oslomet.no/metrics
 
 
-**Screenshots**
+**Screenshots**  
+https://github.com/PratimaAI/agile-project-acit4410/tree/main/screenshots
 
 
 **References to sources**
+
+1. *Why Is It Not Solved Yet?: Challenges for Production-Ready Autoscaling*, Martin Straesser, Johannes Grohmann, J. V. Kistowski, Simon Eismann, A. Bauer, Samuel Kounev, Published in International Conference on… 9 April 2022
+
+2. *Auto-scaling Overview: Learn how auto-scaling allows the resources supporting a workload to adapt to shifts in demand*, http: https://www.datadoghq.com/knowledge-center/auto-scaling/
 
 
 
