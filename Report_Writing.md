@@ -127,18 +127,14 @@ To make sure Project Ruby Acorn achieve its goals, I made use of below technolog
   ```
    I scanned the list for files with extensions ``id_rsa.pub`` and ``id_rsa``. This step determined whether I already had an SSH key in place.
 
-- **Generating an SSH Key:** On my MAC, I opened the terminal and ran: 
+- **Generating an SSH Key:** On my MAC, I opened the terminal and ran [1]: 
   ```bash
   ssh-keygen
   ```
-  After pressing Enter, my key pair was ready for use.I navigated to Settings -> SSH keys and I copied the contents of the newly generated ``id_rsa.pub`` file and added it to Github. To ensure everything was set up correctly, I ran the command in the terminal:
-  ```bash
-  ssh -T git@git.cs.oslomet.no
-  ```
-  The authentication message confirmed that my SSH key was  working.
+  After pressing Enter, my key pair was ready for use.I navigated to Settings -> SSH keys and I copied the contents of the newly generated ``id_rsa.pub`` file and added it to Github.
 
 ### **2.1.2 : ALTO OpenStack**
-ALTO OpenStack Cloud provides the infrastructure for technical projects like Ruby Acorn, especially for students like us, engaged in cloud automation and scripting. Accessing virtual machines involves utilizing floating IPs and configuring the Security Group firewall.
+ALTO OpenStack Cloud provides the infrastructure for technical projects like Ruby Acorn, especially for students like us, engaged in cloud automation and scripting. Accessing virtual machines involves utilizing floating IPs and configuring the Security Group firewall [1].
 
 **Uploading Public Key to ALTO Cloud**   
 I identified the public key associated with my system. The public key is one of the two keys in the ``.ssh directory``.
@@ -199,7 +195,7 @@ docker service ls
 **Step 4:** Connecting to the User Interface and Checking Status
 Access the Grafana dashboard on port 3000:
 
-I ensured port 3000 is open in Access and Security. Then I Logged in with the default username "admin" and the newly set password. 
+I ensured port 3000 is open in Access and Security. Then I Logged in with the default username "admin" and the newly set password [1]. 
 
 ![Alt text](screenshots/Grafana_Working.png)
 
@@ -239,11 +235,11 @@ Verifying the successful deployment:
 docker service ls
 docker service ps prom_prometheus
 ```
-**Step 5:** Then I added a panel in Grafana to visualize the new data. Created a new dashboard, added an empty panel, and configured the panel settings. Used PromQL query patterns to fetch data from Prometheus. In this case, I took the metric as "player_count" for the game "PLAYERUNKNOWNS BATTLEGROUNDS". Below is the screenshot:
+**Step 5:** Then I added a panel in Grafana to visualize the new data [1]. Created a new dashboard, added an empty panel, and configured the panel settings. Used PromQL query patterns to fetch data from Prometheus. In this case, I took the metric as "player_count" for the game "PLAYERUNKNOWNS BATTLEGROUNDS". Below is the screenshot:
 
 ![Alt text](screenshots/Panel_add_Grafana.png)
 
-The completed setup now offered a dynamic dashboard in Grafana displaying the player count data fetched from the newly added target in Prometheus.
+The completed setup now offered a dynamic dashboard in Grafana displaying the player count data fetched from the newly added target in Prometheus [1].
 
 As a starting point I had  taken four games, so that i can get overview about the player count (across hours each day, for 7 days) of these sample games, below is the snapshot:
 
@@ -259,7 +255,7 @@ Python was chosen as the primary programming language for developing the decisio
 ## 2.2 : Autoscaling
 #### **What Is Autoscaling?**
 
-Autoscaling is a scaling technique you can apply to workloads hosted in a cloud environment. One of the major benefits of cloud-based hosting is that you can readily scale capacity to whatever extent is needed to support the demand for your service. Autoscaling takes that advantage a step further. With autoscaling, as the demand for a given workload changes over time, the amount of resources allocated to support that workload adapts automatically to meet your performance requirements [1].
+Autoscaling is a scaling technique you can apply to workloads hosted in a cloud environment. One of the major benefits of cloud-based hosting is that you can readily scale capacity to whatever extent is needed to support the demand for your service. Autoscaling takes that advantage a step further. With autoscaling, as the demand for a given workload changes over time, the amount of resources allocated to support that workload adapts automatically to meet your performance requirements [2].
 
 Before autoscaling was an option, scaling workloads was often challenging. Allocating resources manually to support a workload is inherently error-prone because it is difficult to precisely predict changes in demand or know how many resources are needed to handle those changes. This ambiguity can lead to costly over-provisioning on the one hand, or potential service disruptions due to under-provisioning on the other. Autoscaling helps solve these problems by automatically increasing or decreasing the amount of resources assigned to your workload in direct proportion to the amount that demand also increases or decreases.
 
@@ -271,7 +267,7 @@ Before autoscaling was an option, scaling workloads was often challenging. Alloc
 
 - **Enhanced Reliability:** In a gaming environment, maintaining consistent service availability is critical. Autoscaling provides redundancy and fault tolerance, distributing the load across multiple instances. If one server fails or experiences issues, the others can seamlessly take over, minimizing downtime.
 
-- **Improved User Experience:** With autoscaling, you can ensure that your gaming service can handle an increasing number of players without degradation in performance. This leads to a better overall gaming experience, as players encounter minimal lag, quick response times, and uninterrupted gameplay[2].
+- **Improved User Experience:** With autoscaling, you can ensure that your gaming service can handle an increasing number of players without degradation in performance. This leads to a better overall gaming experience, as players encounter minimal lag, quick response times, and uninterrupted gameplay[3].
 
 #### **Different Ways to Implement Autoscaling:**
 
@@ -283,7 +279,7 @@ Before autoscaling was an option, scaling workloads was often challenging. Alloc
 
 - **Event-Driven Autoscaling:** Autoscaling can be triggered by specific events, such as a sudden increase in the number of players or a new game release. These events act as signals to dynamically adjust the infrastructure to accommodate the changing conditions.
 
-- **Container Orchestration Autoscaling:** If the gaming service is deployed using containerization (e.g., Docker), container orchestration tools like Kubernetes can automatically scale the number of container instances based on predefined metrics or triggers[2].
+- **Container Orchestration Autoscaling:** If the gaming service is deployed using containerization (e.g., Docker), container orchestration tools like Kubernetes can automatically scale the number of container instances based on predefined metrics or triggers[3].
 
 
 #### **Types of autoscaling :**
@@ -291,7 +287,7 @@ There are three types of autoscaling:
 
 - **Reactive** : With a reactive autoscaling approach, resources scale up and down as traffic spikes occur. This approach is closely related with real-time monitoring of resources. There is often also a cooldown period involved, which is a set time period where resources stay elevated -- even as traffic drops -- to deal with any additional incremental traffic spikes.
 - **Predictive** : In a predictive autoscaling approach, machine learning and artificial intelligence techniques are used to analyze traffic loads and predict when more or fewer resources will be needed.
-- **Scheduled** : With a scheduled approach, a user can define a time horizon for when more resources will be added. For example, ahead of a major event or for a peak time period during the day, rather than waiting for the resources to scale up as demand ramps up, they can be pre-provisioned in anticipation[2].
+- **Scheduled** : With a scheduled approach, a user can define a time horizon for when more resources will be added. For example, ahead of a major event or for a peak time period during the day, rather than waiting for the resources to scale up as demand ramps up, they can be pre-provisioned in anticipation[3].
 
 #### **Use cases for Autoscaling :**
 - **E-commerce Websites:** During special promotions, sales, or seasonal peaks, e-commerce websites can auto-scale to handle increased traffic and ensure a smooth shopping experience for users.Scaling down during periods of lower activity helps optimize costs when demand decreases.
@@ -300,7 +296,7 @@ There are three types of autoscaling:
 
 - **Online Gaming Platforms:** Multiplayer online games often experience variable user loads, especially during peak gaming hours or major events.Autoscaling helps gaming platforms dynamically adjust server capacity to meet demand, maintaining a seamless gaming experience.
 
-- **Social media platforms:** Social media platforms witness spikes in user activity during trending events or specific times of the day.Autoscaling allows platforms to adapt to changing loads, ensuring responsive and reliable services for users[2].
+- **Social media platforms:** Social media platforms witness spikes in user activity during trending events or specific times of the day.Autoscaling allows platforms to adapt to changing loads, ensuring responsive and reliable services for users[3].
 
 
 #### **Challenges Associated with Autoscaling:**
@@ -309,7 +305,7 @@ For an application to auto-scale successfully, every component in that applicati
 - The application has to be designed with horizontal scaling in mind. To support horizontal scaling, engineers need to develop the application as a set of microservices. 
 - Sudden demand peaks may outpace the autoscaling response.
 Even in a best-case scenario, nodes may take minutes to come online while customers are already experiencing poor performance/slowness.
-- Effective autoscaling requires engineers to identify the correct performance metrics to trigger scaling. Engineers might auto-scale their infrastructure based on the wrong performance metrics, ultimately resulting in a poor user experience[2].
+- Effective autoscaling requires engineers to identify the correct performance metrics to trigger scaling. Engineers might auto-scale their infrastructure based on the wrong performance metrics, ultimately resulting in a poor user experience[3].
 
 ## 2.3 : Design Overview  
 
@@ -317,7 +313,7 @@ Now, we're planning a technical design for Ruby Acorn's autoscaling solution. It
 
 ### **Architecture**
 
-The architecture of the autoscaling solution can be summarized as in the below diagram:
+The architecture of the autoscaling solution can be summarized with the below flow chart:
 ![Alt text](screenshots/Flowchart.png)
 
 Below is the explanation of all the components in detail:
@@ -768,7 +764,7 @@ In conclusion, Project Ruby Acorn has achieved its objectives by successfully im
 
 # Appendix
 **Configuration files**  
-https://github.com/PratimaAI/agile-project-acit4410/blob/main/prometheus.yml
+https://github.com/PratimaAI/agile-project-acit4410/tree/main/config
 
 
 **Source code**  
@@ -776,18 +772,20 @@ https://github.com/PratimaAI/agile-project-acit4410
 
 
 **Data sets**  
-acit-game-metrics.cs.oslomet.no/metrics
+http://acit-game-metrics.cs.oslomet.no/metrics
 
 
 **Screenshots**  
 https://github.com/PratimaAI/agile-project-acit4410/tree/main/screenshots
 
 
-**References to sources**
+**References**
 
-1. *Why Is It Not Solved Yet?: Challenges for Production-Ready Autoscaling*, Martin Straesser, Johannes Grohmann, J. V. Kistowski, Simon Eismann, A. Bauer, Samuel Kounev, Published in International Conference on… 9 April 2022
+1. https://oslomet.instructure.com/courses/26696/
 
-2. *Auto-scaling Overview: Learn how auto-scaling allows the resources supporting a workload to adapt to shifts in demand*, http: https://www.datadoghq.com/knowledge-center/auto-scaling/
+2. *Why Is It Not Solved Yet?: Challenges for Production-Ready Autoscaling*, Martin Straesser, Johannes Grohmann, J. V. Kistowski, Simon Eismann, A. Bauer, Samuel Kounev, Published in International Conference on 9 April 2022
+
+3. *Auto-scaling Overview: Learn how auto-scaling allows the resources supporting a workload to adapt to shifts in demand*, http: https://www.datadoghq.com/knowledge-center/auto-scaling/
 
 
 
